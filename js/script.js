@@ -32,4 +32,43 @@ while (userNumber.length < userTries && findNumber == false) {
   } else {
     point = point + 1;
   }
+
+// richiamare la funzione che controlla se il numero inserito è dentro all'array usernumber
+// se non è inserito lo inserisce se invece è già stato inserito mandiamo un alert chiedendo di ripetere il numero
+
+  if (checkArrayNumber(userNumber, promptUser) == false) {
+    userNumber.push(promptUser);
+    // console.log(userNumber);
+  } else if (checkArrayNumber(userNumber, promptUser) == true) {
+    alert('Hai gia inserito questo numero');
+  }
+}
+
+console.log('Hai totalizzato il punteggio di' + ' ' + point);
+
+
+ // Creare una funzione per generare un numero random con min e max compreso
+ function randomNumber(min, max) {
+   return Math.floor(Math.random() * (max - min + 1)) + min;
+ }
+
+ // Creare una funzione per vedere se un elemento è inserito dentro un array
+ function checkArrayNumber(array, number) {
+   var i = 0;
+   while ( i < array.length) {
+     if (number == array[i]) {
+       return true;
+     }
+      i++;
+   }
+   return false;
+ }
+
+ // Creare una funzione che stabilisca se i numeri inseriti dall'utente fanno parte di un determinato range di numeri
+function checkRange(numMin, numMax, num) {
+  var rangeResult = false;
+  if (num >= numMin && num <= numMax) {
+    rangeResult = true;
+  }
+  return rangeResult;
 }
